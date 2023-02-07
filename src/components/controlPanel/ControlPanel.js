@@ -1,47 +1,24 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { deleteFood } from "../../features/food/foodSlice";
-import { moveAllBacterias } from "../../features/bacterias/bacteriasSlice";
+import { start, stop } from "../../features/start/startSlice";
 
 function ControlPanel() {
-    const [startIntervalID, setStartIntervalID] = useState(null);
     const dispatch = useDispatch();
-    // const bacteriasList = useSelector((state) => state.bacterias.list);
-    const foodList = useSelector((state) => state.food.list);
-    const foodToDelete = useSelector((state) => state.bacterias.eatenFoodIds);
-
-    function start() {
-        setStartIntervalID(
-            setInterval(() => {
-                console.log("foodToDeleteArray", foodToDelete);
-                console.log(foodToDelete.length > 0);
-                foodToDelete.length > 0 && dispatch(deleteFood(foodToDelete));
-
-                console.log(foodList);
-
-                dispatch(moveAllBacterias(foodList));
-            }, 50)
-        );
-    }
-    function stop() {
-        clearInterval(startIntervalID);
-        setStartIntervalID(null);
-    }
+    const startStatus = useSelector((state) => state.start.value);
 
     return (
         <div className="control_panel">
             <div className="contol_buttons">
                 <button
                     className="btn_start"
-                    disabled={Boolean(startIntervalID)}
-                    onClick={start}
+                    disabled={startStatus}
+                    onClick={() => dispatch(start())}
                 >
                     start
                 </button>
                 <button
                     className="btn_stop"
-                    onClick={stop}
+                    disabled={!startStatus}
+                    onClick={() => dispatch(stop())}
                 >
                     stop
                 </button>

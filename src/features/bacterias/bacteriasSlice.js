@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Bacteria from "./bacteriaClass";
 import moveBact from "./moveFunction";
 
 const initialState = () => {
     return {
-        list: [],
-        currentID: 0,
-        eatenFoodIds: [],
+        bactList: [],
+        bactID: 0,
+        // eatenFoodIds: [],
+        foodList: [],
+        foodID: 0,
     };
 };
 
@@ -15,32 +16,60 @@ export const bacteriasSlice = createSlice({
     initialState,
     reducers: {
         createBacteria: (state, action) => {
-            state.currentID += 1;
+            state.bactID += 1;
             // const newBacteria = new Bacteria(state.currentID, action.payload);
             const newBacteria = {
-                id: state.currentID,
+                id: state.bactID,
                 position: action.payload, //{ x, y }
                 angle: 1,
             };
 
-            state.list.push(newBacteria);
+            state.bactList.push(newBacteria);
         },
-        moveAllBacterias: (state, action) => {
-            state.eatenFoodIds = [];
+        createFood: (state, action) => {
+            state.foodID += 1;
+            const newFood = { ...action.payload, id: state.foodID }; //{x,y,id}
 
-            const newBacteriasList = state.list.map((bact) => {
-                const { eatenFoodId, newBact } = moveBact(action.payload, bact);
-                //{ eatenFoodId: foodItem.id, newBact: newBact }
+            state.foodList.push(newFood);
+        },
 
-                eatenFoodId && state.eatenFoodIds.push(eatenFoodId);
-                return newBact;
+        moveAllBacterias: (state) => {
+            const newBacteriasList = state.bactList.map((bact) => {
+                if (state.foodList.length > 0) {
+                    const { eatenFoodId, newBact } = moveBact(
+                        state.foodList,
+                        bact
+                    );
+                    //{ eatenFoodId: foodItem.id, newBact: newBact }
+
+                    if (eatenFoodId) {
+                        const newFoodList = state.foodList.filter(
+                            (item) => item.id !== eatenFoodId
+                        );
+                        state.foodList = newFoodList;
+                    }
+
+                    return newBact;
+                } else {
+                    return bact;
+                }
             });
 
-            state.list = newBacteriasList;
+            state.bactList = newBacteriasList;
         },
+        // deleteFood: (state, action) => {
+        //     action.payload.forEach((idToDelete) => {
+        //         console.log("idToDeleteItem", idToDelete);
+        //         const newFoodList = state.list.filter(
+        //             (item) => item.id !== idToDelete
+        //         );
+        //         state.list = newFoodList;
+        //     });
+        // },
     },
 });
 
-export const { createBacteria, moveAllBacterias } = bacteriasSlice.actions;
+export const { createBacteria, moveAllBacterias, createFood } =
+    bacteriasSlice.actions;
 
 export default bacteriasSlice.reducer;

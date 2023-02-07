@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import FoodItem from "./FoodItem";
 
-function FoodList({ x, y }) {
-    const foodList = useSelector((state) => state.food.list);
+function FoodList() {
+    const foodList = useSelector((state) => state.bacterias.foodList);
 
     return (
         <>
