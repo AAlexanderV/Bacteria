@@ -10,6 +10,8 @@ function AdditionalStatistics({ showFull }) {
             perColor.push({ color: key, population: statistics.perColor[key] });
         }
     }
+    perColor.sort((a, b) => b.population - a.population);
+
     for (const key in statistics.perSpeedLvl) {
         if (statistics.perSpeedLvl[key] > 0) {
             perSpeedLvl.push({
