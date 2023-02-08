@@ -20,9 +20,9 @@ function Modal() {
                         inherits parent's color and has an equal chance to
                         increase or decrease its speed by 1 or inherit parent's
                         speed. By default all Bacts appear on the field with the
-                        speed of 2 and random color. It means, the child of this
+                        speed of 3 and random color. It means, the child of this
                         parent can be born with the same color only and the
-                        speed of 1, 2 or 3. More speed means more food
+                        speed of 2, 3 or 4. More speed means more food
                         consumption per second. The size of Bact depends on its
                         speed. The largest Bacts are the fastest and vice versa.
                         Summarized statistics on colors alive and mutated speeds

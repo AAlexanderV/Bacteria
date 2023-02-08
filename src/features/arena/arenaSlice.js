@@ -29,7 +29,7 @@ export const arenaSlice = createSlice({
                 id: state.bactID,
                 position: action.payload, //{ x, y }
                 angle: 1,
-                speed: 2,
+                speed: 3,
                 foodLeft: 400,
                 color: Math.floor(Math.random() * 16777215)
                     .toString(16)
@@ -53,7 +53,7 @@ export const arenaSlice = createSlice({
                         y: Math.floor(Math.random() * state.arenaSize.height),
                     },
                     angle: 1,
-                    speed: 2,
+                    speed: 3,
                     foodLeft: 400,
                     color: Math.floor(Math.random() * 16777215)
                         .toString(16)
@@ -84,6 +84,9 @@ export const arenaSlice = createSlice({
                 state.foodList.push(newFood);
             }
         },
+        deleteFood: (state, action) => {
+            state.foodList = state.foodList.slice(0, action.payload);
+        },
         setArenaSize: (state) => {
             state.arenaSize.width = window.innerWidth;
             state.arenaSize.height = window.innerHeight;
@@ -102,7 +105,7 @@ export const arenaSlice = createSlice({
                     //returns from fn moveBact =>{ eatenFoodId: foodItem.id, newBact: newBact }
 
                     if (eatenFoodId) {
-                        newBact.foodLeft += 80;
+                        newBact.foodLeft += 90;
                         const foodIndexToMove = state.foodList.findIndex(
                             (item) => item.id === eatenFoodId
                         );
@@ -158,6 +161,7 @@ export const {
     placeRandomBacteria,
     setArenaSize,
     createFood,
+    deleteFood,
     placeRandomFood,
     moveAll,
     clearAll,
