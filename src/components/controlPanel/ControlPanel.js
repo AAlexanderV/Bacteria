@@ -1,5 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { start, stop } from "../../features/start/startSlice";
+import {
+    placeRandomFood,
+    placeRandomBacteria,
+    clearAll,
+} from "../../features/arena/arenaSlice";
 
 function ControlPanel() {
     const dispatch = useDispatch();
@@ -22,7 +27,20 @@ function ControlPanel() {
                 >
                     stop
                 </button>
-                <button className="btn_clear">clear</button>
+                <button
+                    className="btn_clear"
+                    onClick={() => dispatch(clearAll())}
+                >
+                    clear
+                </button>
+            </div>
+            <div className="contol_buttons">
+                <button onClick={() => dispatch(placeRandomFood(20))}>
+                    +20 Food
+                </button>
+                <button onClick={() => dispatch(placeRandomBacteria(5))}>
+                    +5 Bacts
+                </button>
             </div>
         </div>
     );

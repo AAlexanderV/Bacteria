@@ -1,11 +1,14 @@
-function BacteriaItem({ x, y, angle }) {
+function BacteriaItem({ bact }) {
     return (
         <div
             className="bacteria"
             style={{
-                left: x + "px",
-                top: y + "px",
-                transform: `rotate(${angle + 180}deg)`,
+                left: bact.position.x + "px",
+                top: bact.position.y + "px",
+                transform: `rotate(${bact.angle + 180}deg)`,
+                backgroundColor: "#" + bact.color,
+                // scale: `1.${Math.round(bact.speed / 2)}`,
+                scale: `${bact.speed / 8 + 1}`,
             }}
         ></div>
     );

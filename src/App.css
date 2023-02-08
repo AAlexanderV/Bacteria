@@ -1,9 +1,62 @@
+button{
+  cursor: pointer;
+  transition: all linear .2s;
+}
+button:hover{
+  background-color: rgb(155, 220, 101);
+}
+
+.overlay{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(202, 202, 202, 0.376);
+}
+.modal_container{
+  width: 90%;
+  max-width: 900px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(214, 214, 214);
+  padding: 15px 30px;
+}
+.modal_top p{
+  text-align: justify;
+}
+.modal_top h1{
+  text-align: center;
+}
+.modal_bottom{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.modal_bottom button{
+  margin: 5px 35px;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .control_panel{
   width: 300px;
-  height: 70px;
+  height: fit-content;
   background-color: rgb(202, 202, 202);
   opacity: .4;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -14,6 +67,7 @@
   opacity: .9;
 }
 .contol_buttons{
+  margin:10px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -22,36 +76,86 @@
 .contol_buttons button{
   padding: 5px 15px;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
   font-weight: 600;
 }
+
+.statistics_container{
+  width: 350px;
+  height: fit-content;
+  padding: 10px;
+  background-color: rgb(202, 202, 202);
+  opacity: .6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  position: absolute;
+  top: 0;
+  right:0;
+}
+.statistics_container:hover{
+  opacity: 1;
+}
+.statistics_container h3{
+  font-size: 18px;
+  margin: 10px 0;
+}
+.statistics_container button{
+  margin: 5px 35px;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.additional_statistics{
+  display: flex;
+  flex-direction: row;
+}
+
+.additional_statistics table{
+  width: 50%;
+  height: fit-content;
+  margin-bottom: 10px;
+  border-top: 1px solid #ffffff 50%;
+}
+.additional_statistics table:first-child{
+  margin-right: 4px;
+  border-right: 1px solid #ffffff;
+}
+.additional_statistics table:last-child{
+  margin-left: 4px;
+  border-left: 1px solid #ffffff;
+}
+
+th, td {
+  text-align: center;
+}
+
 
 .arena{
   width: 100%;
   height: 100vh;
   background-color: rgb(255, 253, 213);
-  /* display: flex;
-  flex-direction:row;
-  align-items: center;
-  justify-content: space-around; */
   position: absolute;
   overflow: hidden;
 }
 
 .food_item{
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   background-color: rgb(255, 0, 0);
   border-radius: 50%;
 }
 
 .bacteria{
   position: absolute;
-  width: 50px;
-  height: 25px;
-  background-color: rgb(115, 255, 0);
+  width: 20px;
+  height: 10px;
   border-radius: 50%;
   transform-origin: top left;
   transition: transform .2s linear;
@@ -66,5 +170,7 @@
   background-color: black;
   border-radius: 50%;
   transform: rotate(10deg);
+  color: #ffffff;
+  color: #000000;
 }
 

@@ -6,13 +6,13 @@ export default function moveBact(foodList, bact) {
     const { foodItem, distanceToFood } = findFood(foodList, newBact); //{item: {x,y,id}, distanceToFood: num}
 
     /// количество пикселей, на которое за один раз передвинется бактерия в сторону цели
-    let perStep = 4;
+    let perStep = bact.speed;
 
     const difX = Math.abs(newBact.position.x - foodItem.x - offsetCorrection);
     const difY = Math.abs(newBact.position.y - foodItem.y - offsetCorrection);
 
     // collision with the food
-    if (difX < 4 && difY < 4) {
+    if (difX < perStep && difY < perStep) {
         return { eatenFoodId: foodItem.id, newBact: newBact };
     }
 

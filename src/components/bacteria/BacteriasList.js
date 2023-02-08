@@ -2,16 +2,14 @@ import { useSelector } from "react-redux";
 import BacteriaItem from "./BacteriaItem";
 
 function BacteriasList() {
-    const bacteriasList = useSelector((state) => state.bacterias.bactList);
+    const bacteriasList = useSelector((state) => state.arena.bactList);
 
     return (
         <>
             {bacteriasList.map((bact) => {
                 return (
                     <BacteriaItem
-                        x={bact.position.x}
-                        y={bact.position.y}
-                        angle={bact.angle}
+                        bact={bact}
                         key={bact.id}
                     />
                 );

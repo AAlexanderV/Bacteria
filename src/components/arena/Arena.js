@@ -1,33 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FoodList from "../food/FoodList";
 import BacteriasList from "../bacteria/BacteriasList";
 
 import {
+    setArenaSize,
     createBacteria,
-    moveAllBacterias,
+    moveAll,
     createFood,
-} from "../../features/bacterias/bacteriasSlice";
+} from "../../features/arena/arenaSlice";
 
 function Arena() {
     const dispatch = useDispatch();
-    const [startIntervalID, setStartIntervalID] = useState(null);
-
     const startStatus = useSelector((state) => state.start.value);
 
-    function rightClickHandler(e) {
-        e.preventDefault();
-        dispatch(createFood({ x: e.clientX, y: e.clientY }));
-    }
-
-    function leftClickHandler(e) {
-        dispatch(createBacteria({ x: e.clientX, y: e.clientY }));
-    }
+    const [startIntervalID, setStartIntervalID] = useState(null);
 
     function start() {
         setStartIntervalID(
             setInterval(() => {
-                dispatch(moveAllBacterias());
+                dispatch(moveAll());
             }, 60)
         );
     }
@@ -36,6 +28,17 @@ function Arena() {
         clearInterval(startIntervalID);
         setStartIntervalID(null);
     }
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            dispatch(setArenaSize());
+        };
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => {
+            window.removeEventListener("resize", handleWindowResize);
+        };
+    });
 
     if (startStatus && !startIntervalID) {
         console.log("start");
@@ -48,8 +51,13 @@ function Arena() {
     return (
         <div
             className="arena"
-            onClick={leftClickHandler}
-            onContextMenu={rightClickHandler}
+            onClick={(e) =>
+                dispatch(createBacteria({ x: e.clientX, y: e.clientY }))
+            }
+            onContextMenu={(e) => {
+                e.preventDefault();
+                dispatch(createFood({ x: e.clientX, y: e.clientY }));
+            }}
         >
             <FoodList />
             <BacteriasList />
