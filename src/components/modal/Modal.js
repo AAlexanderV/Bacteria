@@ -15,33 +15,67 @@ function Modal() {
                         Bacteria <span>evolution simulator</span>
                     </h1>
                     <p>
-                        The rules are simple. You can place as many food and
-                        Bacts as you want. If there is not enough food on the
-                        field, Bact dies. If enough food is accumulated, bactera
-                        multiplies and gives half of its food to a child. Child
-                        inherits parent's color and has an equal chance to
-                        increase or decrease its speed by 1 or inherit parent's
-                        speed. By default all Bacts appear on the field with the
-                        speed of 3 and random color. It means, the child of this
-                        parent can be born with the same color only and the
-                        speed of 2, 3 or 4. More speed means more food
-                        consumption per second. The size of Bact depends on its
-                        speed. The largest Bacts are the fastest and vice versa.
-                        Summarized statistics on colors alive and mutated speeds
-                        can be seen in the right corner.
+                        The rules of evolution are simple! The life of a Bact
+                        depends on the availability of food and how quickly it
+                        can get to that food.
                     </p>
                     <p>
-                        You can place food by right-clicking on the field. Use
-                        the left mouse button to create Bacteria. Or use the
-                        buttons on the control panel on the left corner to place
-                        them randomly. When you start food will start randomly
-                        appear on the field, you do not need to add extra food,
-                        but you can.
+                        You can place as much food and Bacts as you want. Note
+                        that if there is not enough food, the Bact will die.
+                        Having eaten enough, Bacts multiply and give half of the
+                        accumulated food to children - this is how new Bacts are
+                        born. The child inherits:
                     </p>
+                    <ul>
+                        <li>the color of the parent by 100%</li>
+                        <li>
+                            a speed close to the parent with equal chances of 3
+                            possible scenarios: either the same speed of the
+                            parent, or +/- 1 to the speed of the parent.
+                        </li>
+                    </ul>
+                    <h3>Game Instruction:</h3>
+                    <ul>
+                        <li>
+                            By default you start with 1 bacteria of each
+                            type/color with the speed of 3. Colors are random.
+                        </li>
+                        <li>
+                            The more food the Bact eats, the bigger size it
+                            gets.
+                        </li>
+                        <li>
+                            Getting bigger increases its need for food
+                            (consumption per second) and also its speed, that
+                            allows the Bact to be more competitive in gaining
+                            the food. The largest Bacts are the fastest and vice
+                            versa.
+                        </li>
+                        <li>
+                            Summarized statistics on colors alive and mutated
+                            speeds can be found in the right corner.
+                        </li>
+                    </ul>
+                    <h3>Game Control: </h3>
+                    <ul>
+                        <li>
+                            To place food: click the right mouse button or press
+                            “+/- 30 Food” at the control panel located on the
+                            left. The Food appears randomly.
+                        </li>
+                        <li>
+                            To create a Bact: click the left mouse button or
+                            press “+ 5 Bacts” at the same control panel.
+                        </li>
+                        <li>
+                            It is up to you how many Bacts and food to place –
+                            there is no limit.
+                        </li>
+                    </ul>
                     <p>
-                        There is no limit on amount of food or Bacts alive, so
-                        be carefull and do not place too much food. Your PC may
-                        not have enough power for too many Bacts.
+                        P.S. Be careful not to exaggerate the number of food.
+                        Your PC may not have enough power to handle so many
+                        Bacts born.
                     </p>
                 </div>
                 <div className="modal_bottom">

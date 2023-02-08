@@ -118,7 +118,7 @@ export const arenaSlice = createSlice({
                         );
                     }
 
-                    if (newBact.foodLeft > 1000) {
+                    if (newBact.foodLeft > 800) {
                         newBact.foodLeft = 400;
                         const child = createChild(newBact, ++state.bactID);
                         newBacteriasList.push(child);
