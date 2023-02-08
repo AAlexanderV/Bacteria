@@ -6,7 +6,7 @@ function Statistics() {
     const bacteriasList = useSelector((state) => state.arena.bactList);
     const currentBactId = useSelector((state) => state.arena.bactID);
 
-    const [fullStatistics, setFullStatistics] = useState(false);
+    const [fullStatistics, setFullStatistics] = useState(true);
 
     return (
         <div className="statistics_container">

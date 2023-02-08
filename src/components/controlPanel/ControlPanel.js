@@ -37,10 +37,10 @@ function ControlPanel() {
             </div>
             <div className="contol_buttons">
                 <button onClick={() => dispatch(placeRandomFood(30))}>
-                    +30 Food
+                    + 30 Food
                 </button>
                 <button onClick={() => dispatch(deleteFood(-30))}>
-                    -30 Food
+                    - 30 Food
                 </button>
             </div>
             <div className="contol_buttons">

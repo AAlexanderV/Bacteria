@@ -88,6 +88,7 @@ button:hover{
 .statistics_container{
   width: 350px;
   height: fit-content;
+  max-height: 95vh;
   padding: 10px;
   background-color: rgb(202, 202, 202);
   opacity: .6;
@@ -107,7 +108,7 @@ button:hover{
   margin: 10px 0;
 }
 .statistics_container button{
-  margin: 5px 35px;
+  margin: 15px 35px 5px;
   padding: 8px 10px;
   border: none;
   cursor: pointer;
@@ -119,6 +120,7 @@ button:hover{
 .additional_statistics{
   display: flex;
   flex-direction: row;
+  overflow: scroll;
 }
 
 .additional_statistics table{
