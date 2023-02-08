@@ -11,7 +11,9 @@ function Modal() {
         >
             <div className="modal_container">
                 <div className="modal_top">
-                    <h1>Bacteria evolution simulator</h1>
+                    <h1>
+                        Bacteria <span>evolution simulator</span>
+                    </h1>
                     <p>
                         The rules are simple. You can place as many food and
                         Bacts as you want. If there is not enough food on the

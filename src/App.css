@@ -30,9 +30,14 @@ button:hover{
 }
 .modal_top p{
   text-align: justify;
+  font-weight: 600;
 }
 .modal_top h1{
+  color: #36c104;
   text-align: center;
+}
+.modal_top h1 span{
+  color: #ff0000;
 }
 .modal_bottom{
   width: 100%;
