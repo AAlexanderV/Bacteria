@@ -120,7 +120,7 @@ button:hover{
 .additional_statistics{
   display: flex;
   flex-direction: row;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .additional_statistics table{
@@ -141,7 +141,6 @@ button:hover{
 th, td {
   text-align: center;
 }
-
 
 .arena{
   width: 100%;
