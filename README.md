@@ -1,4 +1,5 @@
-Bacteria evolution simulator
+Bacteria evolution simulator: 
+https://bact-simulator.netlify.app/
 
 The rules of evolution are simple! The life of a Bact depends on the availability of food and how quickly it can get to that food.
 
